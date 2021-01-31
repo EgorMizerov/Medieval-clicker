@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/paper" />
+
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -28,6 +39,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:text="0"
+        android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/textForCount"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,8 +48,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="60dp"
         android:text="Счётчик:"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,6 +59,8 @@
         android:id="@+id/shopping_menu"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:scaleY="1"
+        android:scrollbarStyle="outsideOverlay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -53,25 +68,31 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:background="#50000000"
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/buyX_2"
-                android:onClick="buySword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#984949"
+                android:onClick="buySword"
                 android:text="Клик x2" />
+
             <Button
                 android:id="@+id/buyX_3"
-                android:onClick="buySword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#984949"
+                android:onClick="buySword"
                 android:text="Клик x3" />
+
             <Button
                 android:id="@+id/buyX_4"
-                android:onClick="buySword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#984949"
+                android:onClick="buySword"
                 android:text="Клик x4" />
         </LinearLayout>
     </ScrollView>
@@ -81,8 +102,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-
+        android:layout_marginEnd="40dp"
         android:text="Сила удара:"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -94,6 +116,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="40dp"
         android:text="1"
+        android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/textForPower"
         app:layout_constraintTop_toTopOf="parent" />
 

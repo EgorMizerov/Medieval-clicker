@@ -30,6 +30,7 @@ class GameActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_game)
 
         gestureDetector = GestureDetector(this, this)
@@ -76,6 +77,11 @@ class GameActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
                     else {
                         params?.height = resources.getDimension(R.dimen.shopping_menu_open).toInt()
                         shopping_menu.layoutParams = params
+                    }
+                } else if (abs(valueX) > MIN_DISTANCE) {
+                    if (x2 > x1) {
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent);
                     }
                 }
                 // Обработка нажатия
