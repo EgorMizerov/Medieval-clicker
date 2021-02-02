@@ -1,21 +1,25 @@
 package com.example.medieval_clicker
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.appcompat.app.AppCompatActivity
 import java.lang.Math.abs
+
 
 var counter = 0;
 var clickPower = 1;
 
 var counterView: TextView? = null
 var powerView: TextView? = null
+
+var img: ImageView? = null
+var frameAnimation: AnimationDrawable? = null
 
 class GameActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
     lateinit var gestureDetector: GestureDetector
@@ -33,11 +37,23 @@ class GameActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         supportActionBar?.hide()
         setContentView(R.layout.activity_game)
 
+        // Анимация гоблина
+        img = findViewById(R.id.animationView)
+        img?.setBackgroundResource(R.drawable.g_animation)
+        frameAnimation = img?.background as AnimationDrawable
+
         gestureDetector = GestureDetector(this, this)
+
+        // Счётчики
         counterView = findViewById(R.id.count)
         powerView = findViewById(R.id.power)
 
         // Тэги
+    }
+
+    override fun onStart() {
+        super.onStart()
+        frameAnimation?.start()
     }
 
     override fun onPause() {
@@ -51,12 +67,12 @@ class GameActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
 
 
         when (event?.action) {
-            0->{
+            0 -> {
                 x1 = event.x
                 y1 = event.y
             }
 
-            1->{
+            1 -> {
                 x2 = event.x
                 y2 = event.y
 
